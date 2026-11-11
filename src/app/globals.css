@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #12100f;
+  --ink-soft: #1b1816;
+  --paper: #f2ecdf;
+  --paper-deep: #ded4c2;
+  --oxblood: #8f2f3f;
+  --brass: #c49a5a;
+  --moss: #68705a;
+  --muted: #aca398;
+  --display: Georgia, "Times New Roman", serif;
+  --sans:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+@theme inline {
+  --font-sans: var(--sans);
+  --font-display: var(--display);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-oxblood: var(--oxblood);
+  --color-brass: var(--brass);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--ink);
+  color: var(--paper);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(
+      circle at 74% -10%,
+      rgba(143, 47, 63, 0.18),
+      transparent 34rem
+    ),
+    var(--ink);
+  font-family: var(--sans);
+  text-rendering: optimizeLegibility;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
+::selection {
+  background: var(--oxblood);
+  color: white;
+}
+
+.font-display {
+  font-family: var(--display);
+}
+
+.vinyl-grooves {
+  background:
+    radial-gradient(
+      circle,
+      transparent 0 8%,
+      rgba(196, 154, 90, 0.24) 8.3% 8.8%,
+      transparent 9.2% 24%,
+      rgba(255, 255, 255, 0.055) 24.3% 24.7%,
+      transparent 25% 38%,
+      rgba(255, 255, 255, 0.04) 38.3% 38.7%,
+      transparent 39% 52%,
+      rgba(255, 255, 255, 0.04) 52.3% 52.7%,
+      transparent 53%
+    ),
+    #24201d;
+}
+
+.paper-noise {
+  background-color: var(--paper);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
