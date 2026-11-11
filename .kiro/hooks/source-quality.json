@@ -1,0 +1,31 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Lint changed TypeScript",
+      "trigger": "PostFileSave",
+      "matcher": "^src/.*\\.(ts|tsx)$",
+      "action": {
+        "type": "command",
+        "command": "node .kiro/scripts/lint-changed.mjs"
+      }
+    },
+    {
+      "name": "Test changed business logic",
+      "trigger": "PostFileSave",
+      "matcher": "^src/lib/(domain|providers|repositories)/.*\\.(ts|tsx)$",
+      "action": {
+        "type": "command",
+        "command": "npm test"
+      }
+    },
+    {
+      "name": "Type check completed spec task",
+      "trigger": "PostTaskExec",
+      "action": {
+        "type": "command",
+        "command": "npm run typecheck"
+      }
+    }
+  ]
+}
